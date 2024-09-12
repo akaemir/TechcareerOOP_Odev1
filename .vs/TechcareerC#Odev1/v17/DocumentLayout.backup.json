@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\EMR\\source\\repos\\TechcareerC#Odev1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3A9F8F27-AA31-4657-B6B3-D9B5E3CBCF40}|TechcareerC#Odev1\\TechcareerC#Odev1.csproj|c:\\users\\emr\\source\\repos\\techcareerc#odev1\\techcareerc#odev1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A9F8F27-AA31-4657-B6B3-D9B5E3CBCF40}|TechcareerC#Odev1\\TechcareerC#Odev1.csproj|solutionrelative:techcareerc#odev1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\EMR\\source\\repos\\TechcareerC#Odev1\\TechcareerC#Odev1\\Program.cs",
+              "RelativeDocumentMoniker": "TechcareerC#Odev1\\Program.cs",
+              "ToolTip": "C:\\Users\\EMR\\source\\repos\\TechcareerC#Odev1\\TechcareerC#Odev1\\Program.cs",
+              "RelativeToolTip": "TechcareerC#Odev1\\Program.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAmwHQAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T17:34:06.669Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
