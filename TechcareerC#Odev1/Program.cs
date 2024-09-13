@@ -30,11 +30,13 @@ Student student2 = new Student()
 };
 Student student3 = new Student("Abuzer","Kadayif",33,"Besiktas","C","+90535564789",false,"Dolapdere");
 // +905355647899 = 13 karakter
+Student student4 = new Student();
 
 studentManager.Update(student1);
 studentManager.Add(student2);
 studentManager.Add(student3);
 studentManager.Remove(student3);
+Console.WriteLine(student1);
 
 class Student
 {
@@ -114,6 +116,11 @@ class StudentManager
             Console.WriteLine("Ogrenci numarasi bos olmamali!");
             return;
         }
+        if (string.IsNullOrEmpty(student.Semt))
+        {
+            Console.WriteLine("Ogrenci Semt bilgisi bos olmamali!");
+            return;
+        }
         if (!student.Numara.StartsWith("+905"))
         {
             Console.WriteLine("Ogrenci numarasi +905 ile baslamali!");
@@ -155,6 +162,11 @@ class StudentManager
         if (string.IsNullOrEmpty(student.Numara))
         {
             Console.WriteLine("Ogrenci numarasi bos olmamali!");
+            return;
+        }
+        if (string.IsNullOrEmpty(student.Semt))
+        {
+            Console.WriteLine("Ogrenci Semt bilgisi bos olmamali!");
             return;
         }
         if (!student.Numara.StartsWith("+905"))
