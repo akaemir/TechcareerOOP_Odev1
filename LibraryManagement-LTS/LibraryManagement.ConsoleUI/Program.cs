@@ -53,26 +53,6 @@ using LibraryManagement.ConsoleUI.Repository;
 using LibraryManagement.ConsoleUI.Service;
 using System.ComponentModel;
 
-
-List<Author> authors = new List<Author>()
-{
-    new Author(1,"Emile","Zola"),
-    new Author(2,"Fyodor","Dostoyevski"),
-    new Author(3,"Recaizade Mahmut","Ekrem"),
-    new Author(4, "Halide Edib","Adıvar"),
-    new Author(5,"Ömer","Seyfettin"),
-    new Author(6,"Ali","Koç"),
-    new Author(7,"Vız vız","Ali")
-};
-
-
-
-List<Category> categories = new List<Category>()
-{
-    new Category(1,"Dünya Klasikleri"),
-    new Category(2,"Türk Klasikleri"),
-    new Category(3,"Bilim Kurgu")
-};
 //GetAllBooksByPageSizeFilter();
 
 //GetAllBooks();
@@ -88,7 +68,18 @@ BookService bookService = new BookService();
 //bookService.GetAll();
 //bookService.GetByID(1);
 
-bookService.GetBookByISBN("9781234567845");
+//bookService.GetBookByISBN("9781234567845");
+AuthorService authorService = new AuthorService();
+
+//authorService.GetAllAuthors();
+//authorService.GetAuthorById(2);
+//authorService.GetAuthorByName("ali");
+
+CategoryService categoryService = new CategoryService();
+
+//categoryService.GetAllCategorys();
+//categoryService.GetCategoryById(3);
+//categoryService.GetCategoryByName("bilim");
 
 
 Book GetBookInputs2()
