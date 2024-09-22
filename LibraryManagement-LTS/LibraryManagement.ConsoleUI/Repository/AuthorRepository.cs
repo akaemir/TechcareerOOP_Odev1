@@ -14,7 +14,7 @@ public class AuthorRepository
     new Author(4, "Halide Edib","Adıvar"),
     new Author(5,"Ömer","Seyfettin"),
     new Author(6,"Ali","Koç"),
-    new Author(7,"Vız vız","Ali")
+    new Author(7,"Vız vız","Ali"),
 };
 
     public List<Author> GetAllAuthors()
