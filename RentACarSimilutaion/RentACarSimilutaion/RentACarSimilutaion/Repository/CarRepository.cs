@@ -16,6 +16,9 @@ public class CarRepository
         new Car(4,2,5,2,"Rental",67896,2021,"34 BI8 41","BMW","i8 hybrid",12000),
         new Car(5,3,1,1,"Rental",24166,2022,"34 CL5 54","Renault","Clio 5",805),
     };
+    ColorRepository colorRepository = new ColorRepository();
+    TransmissionRepository transmissionRepository = new TransmissionRepository();
+    FuelRepository fuelRepository = new FuelRepository();
 
     public Car? GetById(int id)
     {
@@ -59,19 +62,11 @@ public class CarRepository
 
     public List<CarDetailDTO> GetAllDetails()
     {
-        CarRepository carRepository = new CarRepository();
-        List<Car> cars = carRepository.GetAll();
-        ColorRepository colorRepository = new ColorRepository();
-        List<Color> colors = colorRepository.GetAll();
-        TransmissionRepository transmissionRepository = new TransmissionRepository();
-        List<Transmission> transmissions = transmissionRepository.GetAll();
-        FuelRepository fuelRepository = new FuelRepository();
-        List<Fuel> fuels = fuelRepository.GetAll();
         var result =
             from c in cars
-            join f in fuels on c.FuelId equals f.Id
-            join s in colors on c.ColorId equals s.Id
-            join t in transmissions on c.TransmissionId equals t.Id
+            join f in fuelRepository.GetAll() on c.FuelId equals f.Id
+            join s in colorRepository.GetAll() on c.ColorId equals s.Id
+            join t in transmissionRepository.GetAll() on c.TransmissionId equals t.Id
 
             select new CarDetailDTO(
                 Id: c.Id,
@@ -91,19 +86,11 @@ public class CarRepository
     }
     public List<CarDetailDTO> GetAllDetailsByFuelId(int fuelId)
     {
-        CarRepository carRepository = new CarRepository();
-        List<Car> cars = carRepository.GetAll();
-        ColorRepository colorRepository = new ColorRepository();
-        List<Color> colors = colorRepository.GetAll();
-        TransmissionRepository transmissionRepository = new TransmissionRepository();
-        List<Transmission> transmissions = transmissionRepository.GetAll();
-        FuelRepository fuelRepository = new FuelRepository();
-        List<Fuel> fuels = fuelRepository.GetAll();
         var result =
-            from c in cars 
-            join f in fuels on c.FuelId equals f.Id
-            join s in colors on c.ColorId equals s.Id
-            join t in transmissions on c.TransmissionId equals t.Id
+            from c in cars
+            join f in fuelRepository.GetAll() on c.FuelId equals f.Id
+            join s in colorRepository.GetAll() on c.ColorId equals s.Id
+            join t in transmissionRepository.GetAll() on c.TransmissionId equals t.Id
             where f.Id == fuelId
 
             select new CarDetailDTO(
@@ -124,19 +111,11 @@ public class CarRepository
     }
     public List<CarDetailDTO> GetAllDetailsByColorId(int colorId)
     {
-        CarRepository carRepository = new CarRepository();
-        List<Car> cars = carRepository.GetAll();
-        ColorRepository colorRepository = new ColorRepository();
-        List<Color> colors = colorRepository.GetAll();
-        TransmissionRepository transmissionRepository = new TransmissionRepository();
-        List<Transmission> transmissions = transmissionRepository.GetAll();
-        FuelRepository fuelRepository = new FuelRepository();
-        List<Fuel> fuels = fuelRepository.GetAll();
         var result =
             from c in cars
-            join f in fuels on c.FuelId equals f.Id
-            join s in colors on c.ColorId equals s.Id
-            join t in transmissions on c.TransmissionId equals t.Id
+            join f in fuelRepository.GetAll() on c.FuelId equals f.Id
+            join s in colorRepository.GetAll() on c.ColorId equals s.Id
+            join t in transmissionRepository.GetAll() on c.TransmissionId equals t.Id
             where s.Id == colorId
 
             select new CarDetailDTO(
@@ -155,21 +134,14 @@ public class CarRepository
 
         return result.ToList();
     }
-    public List<CarDetailDTO> GetAllDetailsByPriceRange(double min,double max)
+    public List<CarDetailDTO> GetAllDetailsByPriceRange(double min, double max)
     {
-        CarRepository carRepository = new CarRepository();
-        List<Car> cars = carRepository.GetAll();
-        ColorRepository colorRepository = new ColorRepository();
-        List<Color> colors = colorRepository.GetAll();
-        TransmissionRepository transmissionRepository = new TransmissionRepository();
-        List<Transmission> transmissions = transmissionRepository.GetAll();
-        FuelRepository fuelRepository = new FuelRepository();
-        List<Fuel> fuels = fuelRepository.GetAll();
         var result =
-            from c in cars where c.DailyPrice >= min && c.DailyPrice <= max 
-            join f in fuels on c.FuelId equals f.Id
-            join s in colors on c.ColorId equals s.Id
-            join t in transmissions on c.TransmissionId equals t.Id
+            from c in cars
+            where c.DailyPrice >= min && c.DailyPrice <= max
+            join f in fuelRepository.GetAll() on c.FuelId equals f.Id
+            join s in colorRepository.GetAll() on c.ColorId equals s.Id
+            join t in transmissionRepository.GetAll() on c.TransmissionId equals t.Id
 
             select new CarDetailDTO(
                 Id: c.Id,
@@ -189,19 +161,12 @@ public class CarRepository
     }
     public List<CarDetailDTO> GetAllDetailsByBrandNameContains(string brandName)
     {
-        CarRepository carRepository = new CarRepository();
-        List<Car> cars = carRepository.GetAll();
-        ColorRepository colorRepository = new ColorRepository();
-        List<Color> colors = colorRepository.GetAll();
-        TransmissionRepository transmissionRepository = new TransmissionRepository();
-        List<Transmission> transmissions = transmissionRepository.GetAll();
-        FuelRepository fuelRepository = new FuelRepository();
-        List<Fuel> fuels = fuelRepository.GetAll();
         var result =
-            from c in cars where c.BrandName.Contains(brandName,StringComparison.InvariantCultureIgnoreCase)
-            join f in fuels on c.FuelId equals f.Id
-            join s in colors on c.ColorId equals s.Id
-            join t in transmissions on c.TransmissionId equals t.Id
+            from c in cars
+            where c.BrandName.Contains(brandName, StringComparison.InvariantCultureIgnoreCase)
+            join f in fuelRepository.GetAll() on c.FuelId equals f.Id
+            join s in colorRepository.GetAll() on c.ColorId equals s.Id
+            join t in transmissionRepository.GetAll() on c.TransmissionId equals t.Id
 
             select new CarDetailDTO(
                 Id: c.Id,
@@ -221,19 +186,13 @@ public class CarRepository
     }
     public List<CarDetailDTO> GetAllDetailsByModelNameContains(string modelName)
     {
-        CarRepository carRepository = new CarRepository();
-        List<Car> cars = carRepository.GetAll();
-        ColorRepository colorRepository = new ColorRepository();
-        List<Color> colors = colorRepository.GetAll();
-        TransmissionRepository transmissionRepository = new TransmissionRepository();
-        List<Transmission> transmissions = transmissionRepository.GetAll();
-        FuelRepository fuelRepository = new FuelRepository();
         List<Fuel> fuels = fuelRepository.GetAll();
         var result =
-            from c in cars where c.ModelName.Contains(modelName, StringComparison.InvariantCultureIgnoreCase)
-            join f in fuels on c.FuelId equals f.Id
-            join s in colors on c.ColorId equals s.Id
-            join t in transmissions on c.TransmissionId equals t.Id
+            from c in cars
+            where c.ModelName.Contains(modelName, StringComparison.InvariantCultureIgnoreCase)
+            join f in fuelRepository.GetAll() on c.FuelId equals f.Id
+            join s in colorRepository.GetAll() on c.ColorId equals s.Id
+            join t in transmissionRepository.GetAll() on c.TransmissionId equals t.Id
 
             select new CarDetailDTO(
                 Id: c.Id,
@@ -251,8 +210,54 @@ public class CarRepository
 
         return result.ToList();
     }
-    
 
+    public List<CarDetailDTO> GetAllDetailsByKilometerRange(int min, int max)
+    {
+        var result =
+            from c in cars
+            where c.KiloMeter >= min && c.KiloMeter <= max
+            join f in fuelRepository.GetAll() on c.FuelId equals f.Id
+            join s in colorRepository.GetAll() on c.ColorId equals s.Id
+            join t in transmissionRepository.GetAll() on c.TransmissionId equals t.Id
 
+            select new CarDetailDTO(
+                Id: c.Id,
+                FuelName: f.Name,
+                TransmissionName: t.Name,
+                ColorName: s.Name,
+                CarState: c.CarState,
+                KiloMeter: c.KiloMeter,
+                ModelYear: c.ModelYear,
+                Plate: c.Plate,
+                BrandName: c.BrandName,
+                ModelName: c.ModelName,
+                DailyPrice: c.DailyPrice
+                );
 
+        return result.ToList();
+    }
+    public CarDetailDTO? GetDetailById(int id)
+    {
+        var result =
+            (from c in cars
+             where c.Id == id
+             join f in fuelRepository.GetAll() on c.FuelId equals f.Id
+             join s in colorRepository.GetAll() on c.ColorId equals s.Id
+             join t in transmissionRepository.GetAll() on c.TransmissionId equals t.Id
+             select new CarDetailDTO(
+                 Id: c.Id,
+                 FuelName: f.Name,
+                 TransmissionName: t.Name,
+                 ColorName: s.Name,
+                 CarState: c.CarState,
+                 KiloMeter: c.KiloMeter,
+                 ModelYear: c.ModelYear,
+                 Plate: c.Plate,
+                 BrandName: c.BrandName,
+                 ModelName: c.ModelName,
+                 DailyPrice: c.DailyPrice
+                 )).FirstOrDefault();
+
+        return result;
+    }
 }

@@ -38,4 +38,20 @@ public class ColorRepository
     {
         return colors;
     }
+    public Color Add(Color added)
+    {
+        colors.Add(added);
+        return added;
+    }
+
+    public Color? Remove(int id)
+    {
+        Color? deletedColor = GetById(id);
+        if (deletedColor is null)
+        {
+            return null;
+        }
+        colors.Remove(deletedColor);
+        return deletedColor;
+    }
 }

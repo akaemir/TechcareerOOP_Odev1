@@ -93,4 +93,22 @@ public class CarService
             Console.WriteLine(car);
         }
     }
+    public void GetAllDetailsByKilometerRange(int min, int max)
+    {
+        List<CarDetailDTO> cars = carRepository.GetAllDetailsByKilometerRange(min,max);
+        foreach (CarDetailDTO car in cars)
+        {
+            Console.WriteLine(car);
+        }
+    }
+    public void GetDetailById(int id)
+    {
+        CarDetailDTO? car = carRepository.GetDetailById(id);
+        if (car is null)
+        {
+            Console.WriteLine($"Aranan id bulunamadı : {id}");
+            return;
+        }
+        Console.WriteLine(car);
+    }
 }
